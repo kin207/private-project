@@ -2,9 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="resources/jquery.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <title>更新频率设置</title>
+    <style type="text/css">
+        .container{font-size: 0.12rem;}
+
+        .detail{ padding: 0 0.1rem; }
+        .detail-title{margin: 0.07rem 0;}
+        .detail-main{color: #aaaaaa; font-size: 0.12rem; margin-bottom: 0.18rem;}
+
+        .update-title{ padding: 0 0.1rem 0.1rem; border-bottom: 0.005rem solid #aaa; margin-bottom: 0;}
+
+        ul li{padding: 0 0.3rem; height: 0.3rem; line-height: 0.3rem; border-bottom: 0.005rem solid #aaa;}
+        input{font-size: 0.12rem; width: 0.4rem; outline: none;}
+        .result-success{ /*display: inline-block;*/
+            width: 0.18rem; height: 0.18rem; border-radius: 50%;
+            background: #259B24; line-height: 0.15rem; margin-top: 0.06rem;
+            display: none;
+        }
+        li.active .result-success{display: inline-block;}
+        .result-success span{
+            display: inline-block; width: 0.05rem; height: 0.08rem;
+            transform: rotate(35deg) skewX(0deg);
+            border-right: 0.015rem solid #fff;
+            border-bottom:0.015rem solid #fff;
+        }
+
+        .btn{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
+            padding: 0.04rem; border-radius: 0.04rem;  margin-top: 0.2rem; text-align: center;}
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $('ul').on('click', 'li', function(event){
+                // var $current = $(event.currentTarget);
+                $(event.currentTarget).addClass('active').siblings().removeClass('active');
+                // $current.addClass('active');
+            });
+        });
+    </script>
 </head>
 <body>
-$END$
+    <div class="container">
+        <div class="detail">
+            <p class="detail-title">什么是更新频率?</p>
+            <p class="detail-main">
+                更新频率(设备数据更新频率)即设备向云端汇报数据的频率。设备成功联网后，会按照更新频率定期向云端汇报数据。数据更新频率越高，
+                您在微信端可查看的数据越详细。目前免费可选范围为30分钟-12小时，可自定义。联系旺旺客服，可以免费升级到10分钟。
+            </p>
+        </div>
+
+        <div class="update">
+            <p class="update-title detail-title">更新周期</p>
+            <ul>
+                <li class="active"><span>30分钟</span><div class="result-success center fr"><span></span></div></li>
+                <li><span>1小时</span><div class="result-success center fr"><span></span></div></li>
+                <li><span>2小时</span><div class="result-success center fr"><span></span></div></li>
+                <li><span>6小时</span><div class="result-success center fr"><span></span></div></li>
+                <li><span>12小时</span><div class="result-success center fr"><span></span></div></li>
+                <li><span>自定义 </span>
+                    <input type="text" value="180"/>
+                    <span> 分钟  (30~720分钟)</span>
+                    <div class="result-success center fr"><span></span></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn">确认修改</div>
+    </div>
 </body>
 </html>

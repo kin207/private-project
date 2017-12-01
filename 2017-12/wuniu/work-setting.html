@@ -2,9 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="resources/jquery.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <title>工作模式设置</title>
+    <style type="text/css">
+        .container{font-size: 0.12rem;}
+
+        .detail{ padding: 0 0.1rem; }
+        .detail-title{margin: 0.07rem 0;}
+        .detail-main{color: #aaaaaa; font-size: 0.12rem; margin-bottom: 0.18rem;}
+
+        .update-title{ padding: 0 0.1rem 0.1rem; border-bottom: 0.005rem solid #ccc; margin-bottom: 0;}
+
+        ul li{padding: 0 0.3rem; height: 0.3rem; line-height: 0.3rem; border-bottom: 0.005rem solid #ccc;}
+        input{font-size: 0.12rem; width: 0.4rem; outline: none;}
+        .result-success{ /*display: inline-block;*/
+            width: 0.18rem; height: 0.18rem; border-radius: 50%;
+            background: #259B24; line-height: 0.15rem; margin-top: 0.06rem;
+            display: none;
+        }
+        li.active .result-success{display: inline-block;}
+        .result-success span{
+            display: inline-block; width: 0.05rem; height: 0.08rem;
+            transform: rotate(35deg) skewX(0deg);
+            border-right: 0.015rem solid #fff;
+            border-bottom:0.015rem solid #fff;
+        }
+
+        .btn{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
+            padding: 0.04rem; border-radius: 0.04rem;  margin-top: 0.2rem; text-align: center;}
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $('ul').on('click', 'li', function(event){
+                // var $current = $(event.currentTarget);
+                $(event.currentTarget).addClass('active').siblings().removeClass('active');
+                // $current.addClass('active');
+            });
+        });
+    </script>
 </head>
 <body>
-$END$
+<div class="container">
+    <div class="detail">
+        <p class="detail-title">什么是超级省电模式?</p>
+        <p class="detail-main">
+            该模式下，设备会按照您设置的汇报间隔汇报数据，微信端的报警也会受到报警间隔的限制。如果您对环境指标的实时性要求不严格，
+            并且设备在电池供电下工作，建议您设置为该模式。
+        </p>
+    </div>
+
+    <div class="detail">
+        <p class="detail-title">什么是快速反应模式?</p>
+        <p class="detail-main">
+            该模式下，设备实时监测数据，如果发现环境指标超出设定范围，立刻汇报数据。在该模式下微信端不受报警间隔限制，会及时的给您发送报警消息。
+            如果您对环境的实时性要求严格，并且设备在电源供电下工作，建议您设置为该模式。
+        </p>
+    </div>
+
+    <div class="update">
+        <p class="update-title detail-title">工作模式</p>
+        <ul>
+            <li class="active"><span>超级省电</span><div class="result-success center fr"><span></span></div></li>
+            <li><span>快速反应</span><div class="result-success center fr"><span></span></div></li>
+        </ul>
+    </div>
+
+    <div class="btn">确认修改</div>
+</div>
 </body>
 </html>
