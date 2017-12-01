@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var categories = [
+                { name : '温湿度传感器' },{ name : '门磁传感器' },{ name : '空气质量传感器'},{ name : '烟雾传感器'},
+                { name : '水浸传感器'},{ name : '辐射检测仪'},{ name : '心率检测仪'},{ name : '血压测量仪'}
+            ];
+            var $ul = $('.device-list'), $clone = $('.template', $ul);
+            categories.forEach(function(item){
+                var cloneNode = $clone.clone().removeClass('template');
+                cloneNode.find('span:first-child').text(item.name);
+                $ul.append(cloneNode);
+            });
+            $ul.on('click', 'li', function(event){
+                window.location.href="device-guide.html"
+            });
+        });
+    </script>
+    <title>添加设备</title>
+    <style type="text/css">
+        h3.title{font-size: 0.25rem; margin: 0.1rem auto 0; padding-bottom:0.1rem; border-bottom: 0.01rem solid #ccc;}
+        span.arrow{height: 0.06rem; width: 0.06rem; position: absolute; right: 0.2rem; top: 40%;}
+        ul{list-style: none;}
+        ul li{font-size: 0.14rem; padding: 0.08rem 0.2rem; height: 0.2rem; line-height: 0.2rem; border-bottom: 0.01rem solid #ccc;  position: relative;}
+        ul li.template{display: none;}
+        /*ul li span{display: inline-block; vertical-align: middle;}*/
+    </style>
+</head>
+<body>
+    <h3 class="title center">选择产品</h3>
+    <ul class="device-list">
+        <li class="template"><span>温湿度传感器</span><span class="arrow arrow-right"></span></li>
+    </ul>
+</body>
+</html>

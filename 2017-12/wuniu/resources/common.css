@@ -1,0 +1,14 @@
+*{margin: 0; padding: 0;}
+.center{text-align: center;}
+.fl{float: left;}
+.fr{float: right;}
+.clrl{clear: left;}
+.clrr{clear: right;}
+.clear{clear: both;}
+
+.arrow-right{
+    display: inline-block;
+    transform: rotate(-45deg) skewX(10deg);
+    border-right: 0.005rem solid #cccccc;
+    border-bottom:0.005rem solid #ccc;
+}

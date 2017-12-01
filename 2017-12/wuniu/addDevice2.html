@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <title>绑定设备</title>
+    <style type="text/css">
+        .container{font-size: 0.2rem; }
+        .result-success{ margin: 0 auto;
+            width: 0.8rem; height: 0.8rem; border-radius: 50%;
+            background: #259B24; line-height: 0.65rem;
+        }
+        .result-success span{
+            display: inline-block; width: 0.18rem; height: 0.3rem; vertical-align: middle;
+            transform: rotate(35deg) skewX(0deg);
+            border-right: 0.1rem solid #fff;
+            border-bottom:0.1rem solid #fff;
+        }
+        .result-detail{ font-size: .15rem; margin: 0.2rem auto;}
+
+        .name-detail{font-size: 0.12rem; color: #ccc; margin-bottom: 0.2rem;  padding: 0 0.2rem; }
+        .name-input{border-top:0.005rem solid#eee;border-bottom:0.005rem solid #eee; padding: 0.05rem 0.2rem;
+            font-size: 0.12rem; }
+        .name-input input{padding: 0.05rem; border:none; font-size: 0.12rem;}
+
+        .result-code{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
+            padding: 0.03rem; border-radius: 0.04rem;  margin-top: 0.2rem;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-success center"><span></span></div>
+        <div class="result-detail center">绑定成功</div>
+        <div class="name-detail">为方便使用，请为设备起一个名字[长度不超过15个字符]</div>
+        <div class="name-input">
+            <label>设备名称</label>
+            <input type="text" value="这是设备名称"/>
+        </div>
+        <div class="result-code center">完成，返回主页</div>
+    </div>
+</body>
+</html>
