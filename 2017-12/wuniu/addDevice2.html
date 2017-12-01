@@ -11,7 +11,7 @@
         .container{font-size: 0.2rem; }
         .result-success{ margin: 0 auto;
             width: 0.8rem; height: 0.8rem; border-radius: 50%;
-            background: #259B24; line-height: 0.65rem;
+            background: #259B24; line-height: 0.65rem; margin-top: 0.5rem;
         }
         .result-success span{
             display: inline-block; width: 0.18rem; height: 0.3rem; vertical-align: middle;
@@ -21,14 +21,21 @@
         }
         .result-detail{ font-size: .15rem; margin: 0.2rem auto;}
 
-        .name-detail{font-size: 0.12rem; color: #ccc; margin-bottom: 0.2rem;  padding: 0 0.2rem; }
-        .name-input{border-top:0.005rem solid#eee;border-bottom:0.005rem solid #eee; padding: 0.05rem 0.2rem;
-            font-size: 0.12rem; }
-        .name-input input{padding: 0.05rem; border:none; font-size: 0.12rem;}
+        .name-detail{font-size: 0.12rem; color: #aaa; margin-bottom: 0.2rem;  padding: 0 0.3rem; }
+        .name-input{border-top:0.005rem solid#eee;border-bottom:0.005rem solid #eee; padding: 0.05rem 0.3rem;
+            font-size: 0.13rem; }
+        .name-input input{padding: 0.05rem; border:none; font-size: 0.13rem; width: 70%; outline: none;}
 
-        .result-code{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
-            padding: 0.03rem; border-radius: 0.04rem;  margin-top: 0.2rem;}
+        .result-code{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.14rem;
+            padding: 0.04rem; border-radius: 0.04rem;  margin-top: 0.2rem;}
     </style>
+    <script type="text/javascript">
+        $(function(){
+            $('.result-code').click(function(){
+                window.location.href = 'device-list.html';
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">

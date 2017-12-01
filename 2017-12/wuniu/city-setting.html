@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="resources/jquery.js"></script>
+    <script src="resources/echarts.min.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <title>城市设置</title>
+    <style type="text/css">
+        .container{font-size: 0.2rem; padding: 0 0.15rem; }
+        .time-con{font-size: 0.1rem; text-align: right; color: #aaaaaa;}
+        .time-con span{display: inline-block; vertical-align: middle;}
+        span.refresh{width: 0.1rem; height: .1rem; border: 0.005rem solid #aaa; border-radius: 50%;}
+
+        .title{font-size: 0.25rem;}
+        .air{font-size: 0.1rem; margin: 0.05rem auto;}
+
+        .graph{position: relative;}
+        .main-left{font-size: 0.05rem; transform: rotate(-90deg); position: absolute; top:40%;}
+        .main{width: 90%; height: 2rem; margin: 0 auto; margin-right: 0;}
+
+        .btn{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
+            padding: 0.04rem; border-radius: 0.04rem;  margin-top: 0.2rem; text-align: center;}
+        .btn:last-child{margin-top: 0.5rem;}
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            var myChart = echarts.init($('.main').get(0));
+            // 指定图表的配置项和数据
+            var option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid : {
+                    top : '10%'
+                },
+                xAxis:  {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['昨天 多云','今天 阴','明天 晴']
+                },
+                yAxis: {
+                    type: 'value',
+                    // axisLabel: {formatter: '{value} °C'},
+                    // offset : -5,
+                    axisLine : {show:false},
+                    axisTick : {length:6.5}
+                },
+                series: [{
+                    name: '',
+                    type: 'line',
+                    data: [19.5, 15, 26],
+                    smooth : true,
+                    // label:{normal:{show:true, formatter:'{c} °C'}}
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="detail center">
+            <div class="time-con">
+                <span class="refresh"></span>
+                <span class="time">11/23 13:30</span>
+            </div>
+            <p class="title">深圳市</p>
+            <p class="air">阴|空气43优</p>
+            <p class="temperature">15°C</p>
+        </div>
+        <div class="graph">
+            <div class="main-left center">温度 (°C)</div>
+            <div class="main"></div>
+        </div>
+
+        <div class="btn">自动定位城市</div>
+        <div class="btn">手动定位城市</div>
+        <div class="btn">确认修改</div>
+    </div>
+</body>
+</html>
