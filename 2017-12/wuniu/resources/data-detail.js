@@ -1,5 +1,11 @@
 (function(){
     $(function(){
+        new Swiper('.swiper-container', {
+            // direction: 'vertical',
+            loop: false,
+            pagination: '.swiper-pagination'
+        });
+
         function getOption(title, color, val1, val2){
             return {
                 title: {
@@ -262,7 +268,7 @@
     $(function(){
         $('#startTime').val('2016-12-02');
         $('#endTime').val('2017-12-02');
-        
+
         var myChart = echarts.init($('.days .temperature-days').get(0));
         // 指定图表的配置项和数据
         var option = {
