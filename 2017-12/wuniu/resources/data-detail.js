@@ -63,7 +63,8 @@
                 trigger: 'axis'
             },
             grid : {
-                top : '10%'
+                top : '10%',
+                left : '15%'
             },
             color : ['#FC9362', '#F7BC34'],
             legend: {
@@ -84,11 +85,12 @@
             yAxis: {
                 type: 'value',
                 nameGap : 25,
-                offset : -5,
+                offset : 3,
                 axisLabel: {fontSize: 9},
                 axisLine : {show:false},
                 axisTick : {length:6.5},
                 name : '温度 (°C)',
+                nameTextStyle : {fontSize:10},
                 nameLocation : 'center'
             },
             series: [{
@@ -116,7 +118,8 @@
         // 指定图表的配置项和数据
         option = {
             grid : {
-                top : '10%'
+                top : '10%',
+                left : '15%'
             },
             color : ['#CB3780', '#864892'],
             legend: {
@@ -164,7 +167,8 @@
         // 指定图表的配置项和数据
         option = {
             grid : {
-                top : '10%'
+                top : '10%',
+                left : '15%'
             },
             color : ['#69D847'],
             legend: {
@@ -189,6 +193,7 @@
                 axisLabel: {fontSize: 9},
                 axisLine : {show:false},
                 axisTick : {length:6.5},
+                nameTextStyle : {fontSize:10},
                 name : '电量 (100%)',
                 nameLocation : 'center'
             },
@@ -209,7 +214,7 @@
         // 指定图表的配置项和数据
         option = {
             grid : {
-                top : '10%'
+                top : '10%', left : '15%'
             },
             color : ['#5CC2FC'],
             legend: {
@@ -236,6 +241,7 @@
                 axisLabel: {fontSize: 9},
                 axisLine : {show:false},
                 axisTick : {length:6.5},
+                nameTextStyle : {fontSize:10},
                 name : '信号强度 (dbm)',
                 nameLocation : 'center'
             },
