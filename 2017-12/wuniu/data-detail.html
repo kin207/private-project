@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <link rel="stylesheet" href="resources/common.css" />
     <script src="resources/jquery.js"></script>
+    <script src="resources/iCalendar/ICalendar.js"></script>
+    <link rel="stylesheet" href="resources/iCalendar/ICalendar.css"/>
     <script src="resources/lodash.js"></script>
     <script src="resources/echarts.min.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
@@ -33,6 +35,7 @@
         .current .humidity-num, .signal-num{top: 41%; left: 71%;}
 
 
+        .hours{display: none;}
         .hours .title{font-size: 0.13rem; padding:0 0.35rem 0.1rem;  border-bottom: 0.005rem solid #BBBBBB;}
         .hours .title p{margin: 0.08rem;}
         .hours .title .fl{width: 50%;}
@@ -43,6 +46,16 @@
         .hours .graph{position: relative;}
         .hours .graph .sub-title{margin-top:0.1rem; font-size: .13rem;}
         .hours .main{width: 100%; height: 1.8rem; margin: 0 auto;}
+
+
+        .days .title{font-size: 0.13rem; padding:0 0.1rem 0.1rem;  border-bottom: 0.005rem solid #BBBBBB;}
+        .days .title p{margin: 0.09rem 0.09rem 0.12rem;}
+        .days .title input{font-size: 0.12rem; width: 0.65rem;}
+        .days .selectedTime{color: #fff; display: inline-block; height: 0.12rem; line-height: 0.12rem; background: #ED62A7;
+            margin-left: 0.05rem; padding: 0.02rem 0.03rem; border-radius: 0.03rem; font-size: 0.09rem;}
+        .days .graph{position: relative;}
+        .days .graph .sub-title{margin-top:0.1rem; font-size: .13rem;}
+        .days .main{width: 100%; height: 1.8rem; margin: 0 auto;}
     </style>
 </head>
 <body>
@@ -84,29 +97,69 @@
             </div>
             <div class="graph">
                 <div class="sub-title center">温度</div>
-                <div class="main temperature-graph"></div>
+                <div class="main temperature-hours"></div>
             </div>
 
             <div class="graph">
                 <div class="sub-title center">湿度</div>
-                <div class="main humidity-graph"></div>
+                <div class="main humidity-hours"></div>
             </div>
 
             <div class="graph">
                 <div class="sub-title center">电量</div>
-                <div class="main electric-graph"></div>
+                <div class="main electric-hours"></div>
             </div>
 
             <div class="graph">
                 <div class="sub-title center">信号</div>
-                <div class="main signal-graph"></div>
+                <div class="main signal-hours"></div>
             </div>
 
         </div>
 
         <!--传感器饼状图  7天历史-->
-        <div class="tab days"></div>
+        <div class="tab days">
+            <div class="title center">
+                <p>历史指标(深圳市)</p>
+                <span>日期</span>
+                <!--data-lcalendar="2011-01-1,2019-12-31"-->
+                <input id="startTime" type="text" readonly="">
+                <span>至</span>
+                <input id="endTime" type="text" readonly>
+                <span class="selectedTime">7天</span><span class="selectedTime">14天</span><span class="selectedTime">30天</span>
+            </div>
 
+            <div class="graph">
+                <div class="sub-title center">温度</div>
+                <div class="main temperature-days"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">湿度</div>
+                <div class="main humidity-days"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">电量</div>
+                <div class="main electric-days"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">信号</div>
+                <div class="main signal-days"></div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            new window.lCalendar().init({
+                'trigger': '#startTime',
+                'type': 'date'
+            });
+            new window.lCalendar().init({
+                'trigger': '#endTime',
+                'type': 'date'
+            });
+        </script>
 
         <div class="footer"></div>
     </div>

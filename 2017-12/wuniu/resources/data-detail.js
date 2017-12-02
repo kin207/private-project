@@ -56,7 +56,7 @@
 
 
     $(function(){
-        var myChart = echarts.init($('.hours .temperature-graph').get(0));
+        var myChart = echarts.init($('.hours .temperature-hours').get(0));
         // 指定图表的配置项和数据
         var option = {
             tooltip: {
@@ -114,7 +114,7 @@
 
 
 
-        myChart = echarts.init($('.hours .humidity-graph').get(0));
+        myChart = echarts.init($('.hours .humidity-hours').get(0));
         // 指定图表的配置项和数据
         option = {
             grid : {
@@ -163,7 +163,7 @@
 
 
 
-        myChart = echarts.init($('.hours .electric-graph').get(0));
+        myChart = echarts.init($('.hours .electric-hours').get(0));
         // 指定图表的配置项和数据
         option = {
             grid : {
@@ -210,7 +210,214 @@
         myChart.setOption(option);
 
 
-        myChart = echarts.init($('.hours .signal-graph').get(0));
+        myChart = echarts.init($('.hours .signal-hours').get(0));
+        // 指定图表的配置项和数据
+        option = {
+            grid : {
+                top : '10%', left : '15%'
+            },
+            color : ['#5CC2FC'],
+            legend: {
+                data:['设备'],
+                bottom : 15, left:30,
+                textStyle : {fontSize : 10},
+                itemWidth : 20, itemHeight : 10
+            },
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel : {
+                    fontSize : 9,
+                    interval : 1
+                },
+                axisLine: { onZero: false },
+                data: _.range(0, 25)
+            },
+            yAxis: {
+                type: 'value',
+                nameGap : 25,
+                offset : -5,
+                max : 0,
+                axisLabel: {fontSize: 9},
+                axisLine : {show:false},
+                axisTick : {length:6.5},
+                nameTextStyle : {fontSize:10},
+                name : '信号强度 (dbm)',
+                nameLocation : 'center'
+            },
+            series: [{
+                name: '设备',
+                symbol : 'none',
+                type: 'line',
+                data: _.map(_.range(24), function(){ return -_.random(0, 100, true);}),
+                smooth : true
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    });
+
+
+    $(function(){
+        $('#startTime').val('2016-12-02');
+        $('#endTime').val('2017-12-02');
+        
+        var myChart = echarts.init($('.days .temperature-days').get(0));
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid : {
+                top : '10%',
+                left : '15%'
+            },
+            color : ['#FC9362', '#F7BC34'],
+            legend: {
+                data:['室外','设备'],
+                bottom : 15, left:30,
+                textStyle : {fontSize : 10},
+                itemWidth : 20, itemHeight : 10
+            },
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel : {
+                    fontSize : 9,
+                    interval : 1
+                },
+                data: _.range(0, 25)
+            },
+            yAxis: {
+                type: 'value',
+                nameGap : 25,
+                offset : 3,
+                axisLabel: {fontSize: 9},
+                axisLine : {show:false},
+                axisTick : {length:6.5},
+                name : '温度 (°C)',
+                nameTextStyle : {fontSize:10},
+                nameLocation : 'center'
+            },
+            series: [{
+                name: '室外',
+                type: 'line',
+                // lineStyle : {normal:{color : '#FC9362'}},
+                data: _.map(_.range(24), function(){ return _.random(0, 30, true);}),
+                smooth : true
+            }, {
+                name: '设备',
+                // lineStyle : {normal:{color : '#F7BC34'}},
+                symbol : 'none',
+                type: 'line',
+                data: _.map(_.range(24), function(){ return _.random(0, 30, true);}),
+                smooth : true
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+        myChart = echarts.init($('.days .humidity-days').get(0));
+        // 指定图表的配置项和数据
+        option = {
+            grid : {
+                top : '10%',
+                left : '15%'
+            },
+            color : ['#CB3780', '#864892'],
+            legend: {
+                data:['室外','设备'],
+                bottom : 15, left:30,
+                textStyle : {fontSize : 10},
+                itemWidth : 20, itemHeight : 10
+            },
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel : {
+                    fontSize : 9,
+                    interval : 1
+                },
+                data: _.range(0, 25)
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {fontSize: 9, formatter : '{value}%'},
+                axisLine : {show:false},
+                axisTick : {length:6.5}
+            },
+            series: [{
+                name: '室外',
+                type: 'line',
+                // lineStyle : {normal:{color : '#FC9362'}},
+                data: _.map(_.range(24), function(){ return _.random(0, 100, true);}),
+                smooth : true
+            }, {
+                name: '设备',
+                // lineStyle : {normal:{color : '#F7BC34'}},
+                symbol : 'none',
+                type: 'line',
+                data: _.map(_.range(24), function(){ return _.random(0, 100, true);}),
+                smooth : true
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+
+        myChart = echarts.init($('.days .electric-days').get(0));
+        // 指定图表的配置项和数据
+        option = {
+            grid : {
+                top : '10%',
+                left : '15%'
+            },
+            color : ['#69D847'],
+            legend: {
+                data:['设备'],
+                bottom : 15, left:30,
+                textStyle : {fontSize : 10},
+                itemWidth : 20, itemHeight : 10
+            },
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel : {
+                    fontSize : 9,
+                    interval : 1
+                },
+                data: _.range(0, 25)
+            },
+            yAxis: {
+                type: 'value',
+                nameGap : 25,
+                offset : -5,
+                axisLabel: {fontSize: 9},
+                axisLine : {show:false},
+                axisTick : {length:6.5},
+                nameTextStyle : {fontSize:10},
+                name : '电量 (100%)',
+                nameLocation : 'center'
+            },
+            series: [{
+                name: '设备',
+                symbol : 'none',
+                type: 'line',
+                data: _.map(_.range(24), function(){ return _.random(0, 100, true);}),
+                smooth : true
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+        myChart = echarts.init($('.days .signal-days').get(0));
         // 指定图表的配置项和数据
         option = {
             grid : {
