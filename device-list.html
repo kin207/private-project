@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <link rel="stylesheet" href="resources/common.css" />
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script src="resources/jquery.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
     <title>设备列表</title>
     <style type="text/css">
@@ -48,6 +48,14 @@
         .modifybox input{width:90%;border:1px solid #ddd;padding:0.04rem 0 0.04rem 0.04rem;margin:0.15rem auto;}
         .modifybox .cancel-btn{border-right:1px solid #ddd;}
 
+        .morebox{display:none;}
+        .morebox .box{width:100%;position:absolute;bottom:0.1rem;left:0;z-index:3;text-align:center;}
+        .morebox ul{background:#fff;border-radius:0.08rem;width:90%;margin:0 auto;}
+        .morebox li{padding:0.1rem 0;font-size:0.17rem;border-bottom:1px solid #ddd;color:#8f8e94;}
+        .morebox li:last-child{border:none;}
+        .morebox li.setcity{color:#0076ff;}
+        .morebox li.delbind{color:#fe3824;}
+        .morebox .cancel-btn{padding:0.08rem 0;text-align:center;background:#fff;width:90%;border-radius:0.08rem;margin:0.1rem auto 0;color:#0076ff;font-size:0.17rem;}
     </style>
     <script type="text/javascript">
         $(function(){
@@ -83,6 +91,27 @@
             $('.gxpl').click(function(){
                 window.location.href = 'update-frequency.html';
             });
+
+              //工作模式
+            $('.gzms').click(function(){
+                window.location.href = 'work-setting.html';
+            });
+
+
+             //更多
+             $(".more").click(function(){
+                $(".managebox").hide();
+                $(".morebox").show();
+             });
+
+            $(".morebox .cancel-btn").click(function(){
+                $(".morebox").hide();
+            });
+
+            $('.setcity').click(function(){
+                window.location.href = 'city-setting.html';
+            });
+
         });
     </script>
 </head>
@@ -92,14 +121,14 @@
             <li>
                 <div class="top">
                     <div class="tbox">
-                        <img src="resources/image/1.jpg" class="logo">
+                        <img src="resources/1.jpg" class="logo">
                         <span class="name">温湿度传感器-客厅</span>
-                        <img src="resources/image/1.jpg" class="dlogo">
-                        <img src="resources/image/1.jpg" class="xlogo"> 
+                        <img src="resources/1.jpg" class="dlogo">
+                        <img src="resources/1.jpg" class="xlogo"> 
                     </div>
                 </div>
                 <div class="con">
-                    <p class="noww">当前温度：<span class="show">22.30</span> <span class="time">11/23 13:30</span><img src="resources/image/1.jpg"></p>
+                    <p class="noww">当前温度：<span class="show">22.30</span> <span class="time">11/23 13:30</span><img src="resources/1.jpg"></p>
                     <p class="nows">当前湿度：<span class="show">37.2%</span></p>
                     <div class="optbox">
                        <p>ID:  2E23D2A74</p>
@@ -144,6 +173,18 @@
                   <div class="cancel-btn btn">取消</div>
                   <div class="modify-btn btn">修改</div>
               </div>
+            </div>
+        </div>
+
+        <div class="morebox">
+            <div class="back"></div>
+            <div class="box">
+               <ul class="conbox">
+                   <li class="moreset">更多设置</li>
+                   <li class="setcity">设置城市</li>
+                   <li class="delbind">解除绑定</li>
+               </ul>
+               <div class="cancel-btn">取消</div>
             </div>
         </div>
     </div>
