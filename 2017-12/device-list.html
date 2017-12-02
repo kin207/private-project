@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="resources/common.css" />
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script type="text/javascript" src="resources/viewport.js"></script>
+    <title>设备列表</title>
+    <style type="text/css">
+        .container{font-size: 0.2rem;} 
+        .devlist li{border-bottom:1px solid #ccc;}
+        .top{padding:0 0.085rem;}
+        .top .tbox{border-bottom:1px solid #ccc;padding:0.1rem 0 0.08rem;}
+        .top .logo{width:0.25rem;height: 0.25rem;vertical-align: middle;}
+        .top .dlogo,.top .xlogo{float:right;width:0.25rem;height: 0.25rem;}
+        .top .dlogo{margin-left:0.05rem;}
+        .top .name{font-size:0.119rem;color:#000;}
+        .con{padding:0.02rem 0.085rem 0.06rem;font-size:0.119rem;color:#000;}
+        .con .noww,.con .nows{margin-bottom:0.02rem;}
+        .con .noww .time{font-size:0.11rem;color:#696969;float:right;}
+        .con .noww img{width:0.128rem;height:0.128rem;float:right;margin:0.01rem 0.02rem 0 0;}
+        .con .optbox{overflow:hidden;}
+        .con .optbox p{color:#999799;overflow:hidden;float:left;clear:both;}
+        .con .optbox .btn{width:0.684rem;border:none;padding:0.05rem 0;border-radius:0.04rem;background:#259B24;text-align:center;color:#fff;font-size:0.128rem;float:right;margin-top:-0.13rem;}
+        .con .optbox .dbtn{margin-left:0.2rem;}
+
+        .managebox{display:none;}
+        .back{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(12,13,12,0.6);z-index:2;}
+        .managebox .list{position:absolute;left:0;bottom:0;width:100%;background:#fafafa;padding-top:0.25rem;z-index:3;}
+        .managebox .list li{width:33.33%;float:left;text-align:center;padding-bottom:0.25rem;}
+        .managebox .list img{width:0.34rem;height:0.34rem;}
+        .managebox .list .name{display:block;font-size:0.12rem;color:#000;margin-top:0.05rem;}
+
+        .codebox{display:none;}
+        .codebox .box{width:2.3rem;height:1.98rem;position:absolute;left:50%;top:50%;margin-left:-1.015rem;margin-top:-0.99rem;z-index:3;background: #fff;text-align:center;border-radius:0.08rem;}
+        .codebox .title{font-size:0.145rem;margin-top:0.1rem;}
+        .codebox img{width:0.923rem;height:0.923rem;margin:0.08rem 0;}
+        .codebox .sum{font-size:0.11rem;}
+        .codebox .btn{border-top:1px solid #ddd;margin-top:0.08rem;color:#0076ff;font-size:0.145rem;padding:0.06rem 0;}
+        
+        .modifybox{display:none;}
+        .modifybox .box{width:2.3rem;height:1.41rem;position:absolute;left:50%;top:50%;margin-top:-0.705rem;margin-left:-1.015rem;z-index:3;background:#fff;text-align:center;border-radius:0.08rem;}
+        .modifybox .title{font-size:0.145rem;margin-top:0.15rem;}
+        .modifybox .tip{font-size:0.11rem;margin-top:0.05rem;}
+        .modifybox .btngroups{border-top:1px solid #ddd;overflow:hidden;}
+        .modifybox .btngroups div{display:inline-block;width:50%;float:left;color:#0076ff;font-size:0.145rem;text-align:center;padding:0.08rem 0;box-sizing:border-box;}
+        .modifybox input{width:90%;border:1px solid #ddd;padding:0.04rem 0 0.04rem 0.04rem;margin:0.15rem auto;}
+        .modifybox .cancel-btn{border-right:1px solid #ddd;}
+
+    </style>
+    <script type="text/javascript">
+        $(function(){
+             $(".managebox .back").click(function(){
+                 $(".managebox").hide();
+             });
+
+             $(".dbtn").click(function(){
+                 $(".managebox").show();
+             });
+
+             //修改名称
+              $(".xgmc").click(function(){
+                $(".managebox").hide();
+                 $(".modifybox").show();
+             });
+
+             $(".cancel-btn,.modify-btn").click(function(){
+                 $(".modifybox").hide();
+             });
+
+             //二维码
+             $(".code").click(function(){
+                $(".managebox").hide();
+                 $(".codebox").show();
+             });
+
+            $(".codebox .btn").click(function(){
+                $(".codebox").hide();
+            });
+
+            //更新频率
+            $('.gxpl').click(function(){
+                window.location.href = 'update-frequency.html';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <ul class="devlist">
+            <li>
+                <div class="top">
+                    <div class="tbox">
+                        <img src="resources/image/1.jpg" class="logo">
+                        <span class="name">温湿度传感器-客厅</span>
+                        <img src="resources/image/1.jpg" class="dlogo">
+                        <img src="resources/image/1.jpg" class="xlogo"> 
+                    </div>
+                </div>
+                <div class="con">
+                    <p class="noww">当前温度：<span class="show">22.30</span> <span class="time">11/23 13:30</span><img src="resources/image/1.jpg"></p>
+                    <p class="nows">当前湿度：<span class="show">37.2%</span></p>
+                    <div class="optbox">
+                       <p>ID:  2E23D2A74</p>
+                       <p>固件版本：20171023</p>
+                       <input type="button" value="管理设备" class="btn dbtn">
+                       <input type="button" value="数据详情" class="btn sbtn">
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    
+        <div class="managebox">
+            <div class="back"></div>
+            <ul class="list">
+                <li class="xgmc"><img src="resources/image/1.jpg"><span class="name">修改名称</span></li>
+                <li class="code"><img src="resources/image/1.jpg"><span class="name">二维码</span></li>
+                <li class="gxpl"><img src="resources/image/1.jpg"><span class="name">更新频率</span></li>
+                <li class="bjsz"><img src="resources/image/1.jpg"><span class="name">报警设置</span></li>
+                <li class="gzms"><img src="resources/image/1.jpg"><span class="name">工作模式</span></li>
+                <li class="more"><img src="resources/image/1.jpg"><span class="name">更多</span></li>
+            </ul>
+        </div>
+
+        <div class="codebox">
+            <div class="back"></div>
+            <div class="box">
+              <p class="title">设备二维码</p>
+              <img src="resources/image/1.jpg">
+              <p class="sum">E23D13A4C</p>
+              <div class="btn">OK</div>
+            </div>
+        </div>
+
+         <div class="modifybox">
+            <div class="back"></div>
+            <div class="box">
+              <p class="title">修改设备名称</p>
+              <p class="tip">长度不超过15个字符</p>
+              <input type="text" placeholder="设备名称">
+              <div class="btngroups">
+                  <div class="cancel-btn btn">取消</div>
+                  <div class="modify-btn btn">修改</div>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
