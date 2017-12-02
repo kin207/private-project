@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <link rel="stylesheet" href="resources/common.css" />
     <script src="resources/jquery.js"></script>
+    <script src="resources/lodash.js"></script>
     <script src="resources/echarts.min.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
     <script type="text/javascript" src="resources/data-detail.js"></script>
@@ -12,6 +13,7 @@
     <style type="text/css">
         .container{font-size: 0.1rem;}
 
+        .current{display: none;}
         .current .head{padding: 0 0.15rem; border-bottom: 0.005rem solid #BBBBBB; height: 0.35rem; line-height: 0.35rem;}
         .current .head:after{content: ''; clear: both;}
         .current .head .fl{width: 0.85rem;}
@@ -29,6 +31,18 @@
         .current .group .num{position: absolute; text-align: center; width: 0.28rem; overflow: hidden;}
         .current .temperature-num, .electric-num{top: 41%; left: 21%;}
         .current .humidity-num, .signal-num{top: 41%; left: 71%;}
+
+
+        .hours .title{font-size: 0.13rem; padding:0 0.35rem 0.1rem;  border-bottom: 0.005rem solid #BBBBBB;}
+        .hours .title p{margin: 0.08rem;}
+        .hours .title .fl{width: 50%;}
+        .hours .title .fl span{color: #fff; display: inline-block; height: 0.12rem; line-height: 0.12rem;
+            margin-left: 0.05rem; padding: 0.02rem; border-radius: 0.03rem; font-size: 0.09rem;}
+        .hours .title .temperature span{background: #FF9800;}
+        .hours .title .humidity span{background: #ED62A7;}
+        .hours .graph{position: relative;}
+        .hours .graph .sub-title{margin-top:0.1rem; font-size: .13rem;}
+        .hours .main{width: 100%; height: 1.8rem; margin: 0 auto;}
     </style>
 </head>
 <body>
@@ -61,7 +75,34 @@
         </div>
 
         <!--传感器折线图  24小时-->
-        <div class="tab hours"></div>
+        <div class="tab hours">
+            <div class="title center">
+                <p>24小时指标(深圳市)</p>
+                <div class="fl temperature">温度<span>适中</span></div>
+                <div class="fl humidity">湿度<span>适中</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="graph">
+                <div class="sub-title center">温度</div>
+                <div class="main temperature-graph"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">湿度</div>
+                <div class="main humidity-graph"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">电量</div>
+                <div class="main electric-graph"></div>
+            </div>
+
+            <div class="graph">
+                <div class="sub-title center">信号</div>
+                <div class="main signal-graph"></div>
+            </div>
+
+        </div>
 
         <!--传感器饼状图  7天历史-->
         <div class="tab days"></div>
