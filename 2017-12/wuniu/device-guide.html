@@ -6,22 +6,17 @@
     <link rel="stylesheet" href="resources/common.css" />
     <script src="resources/jquery.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
     <title>产品使用指南</title>
     <style type="text/css">
-        .container{ padding: 0 0.1rem; font-size: 0.2rem; }
+        .container{ padding: 0 0.25rem; font-size: 0.2rem; }
         .sub-title{font-size: 0.17rem; margin: 0.1rem auto;}
         .guide-detail{ font-size: 0.12rem; margin-bottom: 0.2rem;}
         .guide-detail .g-title{color: #FF9800;}
         .scan-code{width: 2rem; margin: 0 auto; background:#259B24; color: #fff; font-size: 0.13rem;
         padding: 0.03rem; border-radius: 0.04rem;}
     </style>
-    <script type="text/javascript">
-        $(function(){
-            $('.scan-code').click(function(){
-                // 扫描二维码
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="container">
@@ -40,5 +35,39 @@
         </div>
         <div class="scan-code center">扫描二维码</div>
     </div>
+    <script type="text/javascript">
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '${requestScope.appid}', // 必填，公众号的唯一标识
+            timestamp: '${requestScope.timestamp}', // 必填，生成签名的时间戳
+            nonceStr: '${requestScope.nonceStr}', // 必填，生成签名的随机串
+            signature: '${requestScope.signature}',// 必填，签名，见附录1
+            jsApiList: ['checkJsApi', 'scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function(){
+            wx.checkJsApi({
+                jsApiList : ['scanQRCode'],
+                success : function(res) {
+                }
+            });
+
+            $('.scan-code').click(function(){
+                wx.scanQRCode({
+                    needResult : 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType : [ "qrCode", "barCode" ], // 可以指定扫二维码还是一维码，默认二者都有
+                    success : function(res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        // document.getElementById("wm_id").value = result;//将扫描的结果赋予到jsp对应值上
+                        alert("扫描成功::扫描码=" + result);
+                    }
+                });
+            });
+        });
+
+        wx.error(function(err){
+            alert('微信配置失败');
+        });
+    </script>
 </body>
 </html>
