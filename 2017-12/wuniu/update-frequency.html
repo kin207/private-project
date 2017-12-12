@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <link rel="stylesheet" href="resources/common.css" />
     <script src="resources/jquery.js"></script>
+    <script src="resources/lodash.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
     <title>更新频率设置</title>
     <style type="text/css">
@@ -41,6 +42,28 @@
                 $(event.currentTarget).addClass('active').siblings().removeClass('active');
                 // $current.addClass('active');
             });
+
+            $('.btn').click(function(){  // 确认修改
+                var activeNode = $('ul li.active');
+                var value = activeNode.attr('value');
+                if( Number(value) === 0 ){
+                    value = activeNode.children('input').val();
+                }
+                // $.ajax('', {});
+            });
+
+            var regexp = /^[0-9]+$/;
+            $('.custom-input').keyup(function(){
+                var value = $(this).val();
+                if( !regexp.test( value ) ){
+                    $(this).val( value.substring(0,value.length-1) );
+                }
+            }).change(function(){
+                var value = $(this).val();
+                if( value < 30 ) $(this).val(30);
+                if( value > 720 ) $(this).val(720);
+            });
+
         });
     </script>
 </head>
@@ -57,13 +80,13 @@
         <div class="update">
             <p class="update-title detail-title">更新周期</p>
             <ul>
-                <li class="active"><span>30分钟</span><div class="result-success center fr"><span></span></div></li>
+                <li class="active" value="30"><span>30分钟</span><div class="result-success center fr"><span></span></div></li>
                 <li><span>1小时</span><div class="result-success center fr"><span></span></div></li>
                 <li><span>2小时</span><div class="result-success center fr"><span></span></div></li>
                 <li><span>6小时</span><div class="result-success center fr"><span></span></div></li>
                 <li><span>12小时</span><div class="result-success center fr"><span></span></div></li>
-                <li><span>自定义 </span>
-                    <input type="text" value="180"/>
+                <li value="0"><span>自定义 </span>
+                    <input type="text" value="180" class="custom-input"/>
                     <span> 分钟  (30~720分钟)</span>
                     <div class="result-success center fr"><span></span></div>
                 </li>

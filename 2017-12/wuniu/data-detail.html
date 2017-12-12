@@ -7,6 +7,7 @@
     <script src="resources/jquery.js"></script>
     <script src="resources/lodash.js"></script>
     <script src="resources/echarts.min.js"></script>
+    <script src="resources/moment.js"></script>
     <script type="text/javascript" src="resources/viewport.js"></script>
 
     <script type="text/javascript" src="resources/swiper/swiper-3.4.2.jquery.min.js"></script>
@@ -62,6 +63,7 @@
         .days .title input{font-size: 0.12rem; width: 0.65rem;}
         .days .selectedTime{color: #fff; display: inline-block; height: 0.12rem; line-height: 0.12rem; background: #ED62A7;
             margin-left: 0.05rem; padding: 0.02rem 0.03rem; border-radius: 0.03rem; font-size: 0.09rem;}
+        .days .selectedTime.active{background: #864892;}
         .days .graph{position: relative;}
         .days .graph .sub-title{margin-top:0.1rem; font-size: .13rem;}
         .days .graph:last-child{margin-bottom: 0.2rem;}
@@ -148,7 +150,9 @@
                         <input id="startTime" type="text" readonly="">
                         <span>至</span>
                         <input id="endTime" type="text" readonly>
-                        <span class="selectedTime">7天</span><span class="selectedTime">14天</span><span class="selectedTime">30天</span>
+                        <span class="selectedTime active" value="7">7天</span>
+                        <span class="selectedTime" value="14">14天</span>
+                        <span class="selectedTime" value="30">30天</span>
                     </div>
 
                     <div class="graph">
@@ -178,14 +182,14 @@
         </div>
 
         <script type="text/javascript">
-            new window.lCalendar().init({
+            /*new window.lCalendar().init({
                 'trigger': '#startTime',
                 'type': 'date'
             });
             new window.lCalendar().init({
                 'trigger': '#endTime',
                 'type': 'date'
-            });
+            });*/
         </script>
 
         <div class="footer center">

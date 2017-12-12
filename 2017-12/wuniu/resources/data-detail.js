@@ -6,6 +6,13 @@
             pagination: '.swiper-pagination'
         });
 
+        var now = new Date();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        $('.time').text( month + '/' + day + '  ' + hour + ':' + min );
+
         function getOption(title, color, val1, val2){
             return {
                 title: {
@@ -266,8 +273,22 @@
 
 
     $(function(){
-        $('#startTime').val('2016-12-02');
-        $('#endTime').val('2017-12-02');
+
+        var endTime = $('#endTime'), startTime = $('#startTime');
+        endTime.val(moment().format('YYYY-MM-DD'));
+        startTime.val(moment().subtract(7, 'd').format('YYYY-MM-DD'));
+
+        $('.selectedTime').click(function(event){
+            $(event.currentTarget).addClass('active').siblings().removeClass('active');
+            var value = $('.selectedTime.active').attr('value');
+
+            endTime.val(moment().format('YYYY-MM-DD'));
+            startTime.val(moment().subtract(Number(value), 'd').format('YYYY-MM-DD'));
+
+            // $.ajax
+        });
+
+        // $.ajax
 
         var myChart = echarts.init($('.days .temperature-days').get(0));
         // 指定图表的配置项和数据
@@ -321,7 +342,6 @@
                 smooth : true
             }]
         };
-
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 
@@ -418,7 +438,6 @@
                 smooth : true
             }]
         };
-
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 
@@ -466,10 +485,10 @@
                 smooth : true
             }]
         };
-
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
     });
+
 }());
 
 
