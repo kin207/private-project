@@ -81,7 +81,8 @@
             },
             color : ['#FC9362', '#F7BC34'],
             legend: {
-                data:['室外','设备'],
+                // data:['室外','设备'],
+                data:['设备'],
                 bottom : 15, left:30,
                 textStyle : {fontSize : 10},
                 itemWidth : 20, itemHeight : 10
@@ -106,13 +107,13 @@
                 nameTextStyle : {fontSize:10},
                 nameLocation : 'center'
             },
-            series: [{
+            series: [/*{
                 name: '室外',
                 type: 'line',
                 // lineStyle : {normal:{color : '#FC9362'}},
                 data: _.map(_.range(24), function(){ return _.random(0, 30, true);}),
                 smooth : true
-            }, {
+            }, */{
                 name: '设备',
                 // lineStyle : {normal:{color : '#F7BC34'}},
                 symbol : 'none',
@@ -136,7 +137,8 @@
             },
             color : ['#CB3780', '#864892'],
             legend: {
-                data:['室外','设备'],
+                // data:['室外','设备'],
+                data:['设备'],
                 bottom : 15, left:30,
                 textStyle : {fontSize : 10},
                 itemWidth : 20, itemHeight : 10
@@ -156,13 +158,13 @@
                 axisLine : {show:false},
                 axisTick : {length:6.5}
             },
-            series: [{
+            series: [/*{
                 name: '室外',
                 type: 'line',
                 // lineStyle : {normal:{color : '#FC9362'}},
                 data: _.map(_.range(24), function(){ return _.random(0, 100, true);}),
                 smooth : true
-            }, {
+            }, */{
                 name: '设备',
                 // lineStyle : {normal:{color : '#F7BC34'}},
                 symbol : 'none',
@@ -302,7 +304,8 @@
             },
             color : ['#FC9362', '#F7BC34'],
             legend: {
-                data:['室外','设备'],
+                // data:['室外','设备'],
+                data:['设备'],
                 bottom : 15, left:30,
                 textStyle : {fontSize : 10},
                 itemWidth : 20, itemHeight : 10
@@ -327,13 +330,13 @@
                 nameTextStyle : {fontSize:10},
                 nameLocation : 'center'
             },
-            series: [{
+            series: [/*{
                 name: '室外',
                 type: 'line',
                 // lineStyle : {normal:{color : '#FC9362'}},
                 data: _.map(_.range(24), function(){ return _.random(0, 30, true);}),
                 smooth : true
-            }, {
+            }, */{
                 name: '设备',
                 // lineStyle : {normal:{color : '#F7BC34'}},
                 symbol : 'none',
@@ -356,7 +359,8 @@
             },
             color : ['#CB3780', '#864892'],
             legend: {
-                data:['室外','设备'],
+                // data:['室外','设备'],
+                data:['设备'],
                 bottom : 15, left:30,
                 textStyle : {fontSize : 10},
                 itemWidth : 20, itemHeight : 10
@@ -376,13 +380,13 @@
                 axisLine : {show:false},
                 axisTick : {length:6.5}
             },
-            series: [{
+            series: [/*{
                 name: '室外',
                 type: 'line',
                 // lineStyle : {normal:{color : '#FC9362'}},
                 data: _.map(_.range(24), function(){ return _.random(0, 100, true);}),
                 smooth : true
-            }, {
+            }, */{
                 name: '设备',
                 // lineStyle : {normal:{color : '#F7BC34'}},
                 symbol : 'none',
